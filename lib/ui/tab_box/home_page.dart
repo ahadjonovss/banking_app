@@ -1,5 +1,6 @@
 import 'package:banking_app/bloc/cubits/bottom_nav_cubit/navigation_cubit.dart';
 import 'package:banking_app/ui/tab_box/tabs/widgets/custom_nav_bar.dart';
+import 'package:banking_app/utils/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
+              Navigator.pushNamed(context, addCard);
 
             },
           ),

@@ -12,25 +12,7 @@ class CardsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Cars Page"),
       ),
-      body: Column(
-        children: [
-          TextButton(onPressed: () async {
-            var id = await getIt<CardsRepository>().addCard(CardModel(image: "image", cardNumber: "cardNumber", expireDate: "expireDate",author: "Samandar"));
-            print("ID : $id");
-
-          }, child: const Text("Add Card")),
-          TextButton(onPressed: () async {
-            var id = await getIt<CardsRepository>().updateCard(CardModel(image: "image", cardNumber: "cardNumber", expireDate: "expireDate",author: "Mirzakarim",id: 4));
-            print("ID : $id");
-
-          }, child: const Text("Update Card")),
-          TextButton(onPressed: () async {
-            List<CardModel> cards = await getIt<CardsRepository>().getAllCards();
-            print("Cards : ${cards[3].author}");
-
-          }, child: Text("Get Card")),
-        ],
-      ),
+      body: Container(),
     );
   }
 }

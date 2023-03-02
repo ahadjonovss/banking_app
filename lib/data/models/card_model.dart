@@ -1,6 +1,7 @@
 class CardModel {
   final String author;
   int? id;
+  final num amount;
   final String expireDate;
   final String cardNumber;
   final String image;
@@ -8,6 +9,7 @@ class CardModel {
 
   CardModel(
       {
+        this.amount=0,
         this.id = -8,
       required this.image,
       required this.cardNumber,
@@ -17,6 +19,7 @@ class CardModel {
 
   factory CardModel.fromJson(Map<String, dynamic> json) {
     return CardModel(
+      amount: json[CardModeFields.amount],
       author: json[CardModeFields.author]??"",
         id: json[CardModeFields.id],
         image: json[CardModeFields.image],
@@ -30,6 +33,7 @@ class CardModel {
 
   toJson() {
     return {
+      CardModeFields.amount:amount,
       CardModeFields.expireDate: expireDate,
       CardModeFields.author: author,
       CardModeFields.cardNumber: cardNumber,
@@ -52,6 +56,7 @@ class CardModel {
 
 class CardModeFields {
   static const id = "id";
+  static const amount = "amount";
   static const author = "author";
   static const expireDate = "expireDate";
   static const cardNumber = "cardNumber";

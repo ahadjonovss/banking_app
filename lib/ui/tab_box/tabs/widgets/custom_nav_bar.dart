@@ -17,7 +17,7 @@ class CustomNavigationBar extends StatelessWidget {
         icons: context.read<BottomNavCubit>().iconList,
         activeIndex: state,
         gapLocation: GapLocation.center,
-        height: 90,
+        height: 80,
         iconSize: 28,
         notchSmoothness: NotchSmoothness.verySmoothEdge,
         leftCornerRadius: 32,

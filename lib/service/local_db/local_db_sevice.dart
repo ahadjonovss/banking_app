@@ -1,4 +1,5 @@
 import 'package:banking_app/data/models/card_model.dart';
+import 'package:banking_app/data/models/my_response.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -44,20 +45,28 @@ class LocalDatabase {
     return id;
   }
 
-  Future<List<CardModel>> getAllCards() async {
+  Future<MyResponse> getAllCards() async {
     Database db = await getDb();
+    MyResponse myResponse = MyResponse();
 
-    var result = await db.query(tableName, columns: [
-      CardModeFields.cardNumber,
-      CardModeFields.author,
-      CardModeFields.image,
-      CardModeFields.expireDate,
-      CardModeFields.secondColor,
-      CardModeFields.firstColor,
-      CardModeFields.amount,
-    ]);
+    try{
+      var result = await db.query(tableName, columns: [
+        CardModeFields.cardNumber,
+        CardModeFields.author,
+        CardModeFields.image,
+        CardModeFields.expireDate,
+        CardModeFields.secondColor,
+        CardModeFields.firstColor,
+        CardModeFields.amount,
+      ]);
+      myResponse.cards = result.toList().map((e) => CardModel.fromJson(e)).toList();
 
-    return  result.toList().map((e) => CardModel.fromJson(e)).toList();
+    }catch(e){
+      myResponse.status=e.toString();
+    }
+    return myResponse;
+
+
   }
 
   Future<int> updateCard(CardModel card) async {

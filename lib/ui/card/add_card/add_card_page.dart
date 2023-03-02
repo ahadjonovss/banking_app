@@ -1,6 +1,7 @@
 import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
+import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
 import 'package:banking_app/ui/card/widgets/custom_text_field.dart';
-import 'package:banking_app/ui/widgets/card_widget.dart';
+import 'package:banking_app/ui/card/add_card/widgets/editable_card.dart';
 import 'package:banking_app/ui/widgets/global_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,6 +38,7 @@ class _AddCardPageState extends State<AddCardPage> {
         child: BlocConsumer<AddCardBloc,AddCardState>(
           listener: (context, state) {
             if(state.status==CardStatus.DONE){
+              context.read<CardsCubit>().getAllCards();
               Navigator.pop(context);
             }else if(state.status==CardStatus.FAILURY){
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Fill all gaps")));
@@ -49,7 +51,7 @@ class _AddCardPageState extends State<AddCardPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CardWidget(),
+                EditableCardWidget(),
                 const SizedBox(height: 20,),
                 CustomTextField(controller: nameController, title: "Owner Name"),
                 const SizedBox(height: 20,),

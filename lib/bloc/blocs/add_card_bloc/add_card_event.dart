@@ -12,3 +12,6 @@ class UpdateFieldsEvent extends AddCardEvent {
 
   UpdateFieldsEvent({this.expireDate,this.image, this.gradient, this.cardNumber, this.owner});
 }
+
+
+class AddCardToDbEvent extends AddCardEvent{}

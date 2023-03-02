@@ -1,3 +1,8 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:string_to_color/string_to_color.dart';
+
 class CardModel {
   final String author;
   int? id;
@@ -5,7 +10,7 @@ class CardModel {
   final String expireDate;
   final String cardNumber;
   final String image;
-  final List<String> gradient;
+  final List<Color> gradient;
 
   CardModel(
       {
@@ -15,7 +20,7 @@ class CardModel {
       required this.cardNumber,
       required this.expireDate,
         required this.author,
-      this.gradient = const ["", ""]});
+      this.gradient =  const [Colors.white,Colors.white]});
 
   factory CardModel.fromJson(Map<String, dynamic> json) {
     return CardModel(
@@ -26,8 +31,8 @@ class CardModel {
         cardNumber: json[CardModeFields.cardNumber],
         expireDate: json[CardModeFields.expireDate],
         gradient: [
-          json[CardModeFields.firstColor],
-          json[CardModeFields.secondColor]
+          ColorUtils.stringToColor(json[CardModeFields.firstColor]),
+          ColorUtils.stringToColor(json[CardModeFields.secondColor]),
         ]);
   }
 
@@ -38,8 +43,8 @@ class CardModel {
       CardModeFields.author: author,
       CardModeFields.cardNumber: cardNumber,
       CardModeFields.image: image,
-      CardModeFields.firstColor: gradient[0],
-      CardModeFields.secondColor: gradient[1],
+      CardModeFields.firstColor: gradient[0].toString(),
+      CardModeFields.secondColor: gradient[1].toString(),
     };
   }
 

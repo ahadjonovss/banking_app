@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class GlobalButton extends StatelessWidget {
   String title;
@@ -8,17 +9,20 @@ class GlobalButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: color,
+    return ZoomTapAnimation(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: color,
+
+        ),
+        alignment: Alignment.center,
+        height: 40,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Text(title,style: const TextStyle(color: Colors.white,fontSize: 16),),
 
       ),
-      alignment: Alignment.center,
-      height: 40,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Text(title,style: const TextStyle(color: Colors.white,fontSize: 16),),
-
     );
   }
 }

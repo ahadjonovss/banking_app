@@ -5,20 +5,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CardWidget extends StatelessWidget {
+class CardWidget extends StatefulWidget {
   const CardWidget({Key? key}) : super(key: key);
 
+  @override
+  State<CardWidget> createState() => _CardWidgetState();
+}
 
+class _CardWidgetState extends State<CardWidget> {
   @override
   Widget build(BuildContext context) {
     Color textColor = Colors.black;
     Color titleColor = Colors.grey;
-    return BlocBuilder<AddCardBloc,AddCardState>(
+    return BlocConsumer<AddCardBloc,AddCardState>(
+      listener: (context, state) {
+        if(state.gradient.length>1){
+          print(state.gradient);
+          setState(() {});
+        }
+      },
      builder: (context, state) => Container(
-       padding: EdgeInsets.all(16),
+       padding: const EdgeInsets.all(16),
        height: 224,
        width: 400,
        decoration: BoxDecoration(
+         gradient: state.gradient.length>1?LinearGradient(
+           colors: state.gradient
+         ):null,
            borderRadius: BorderRadius.circular(12),
            color: Colors.white
        ),

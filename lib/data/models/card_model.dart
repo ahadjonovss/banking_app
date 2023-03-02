@@ -1,10 +1,12 @@
 class CardModel{
+  int? id;
   final String expireDate;
   final String cardNumber;
   final String image;
   final List<String> gradient;
 
   CardModel({
+    this.id=-8,
     required this.image,
     required this.cardNumber,
     required this.expireDate,
@@ -13,6 +15,7 @@ class CardModel{
 
   factory CardModel.fromJson(Map<String,dynamic> json){
     return CardModel(
+      id: json[CardModeFields.id],
       image: json[CardModeFields.image],
       cardNumber: json[CardModeFields.cardNumber],
       expireDate: json[CardModeFields.expireDate],
@@ -37,6 +40,7 @@ class CardModel{
 
 
 class CardModeFields{
+  static const id= "id";
   static const expireDate= "expireDate";
   static const cardNumber= "cardNumber";
   static const image= "image";

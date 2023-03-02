@@ -28,6 +28,7 @@ class LocalDatabase {
     await database.execute("CREATE TABLE $tableName ("
         "${CardModeFields.id} INTEGER PRIMARY KEY AUTOINCREMENT,"
         "${CardModeFields.expireDate} TEXT,"
+        "${CardModeFields.author} TEXT,"
         "${CardModeFields.cardNumber} TEXT,"
         "${CardModeFields.image} TEXT,"
         "${CardModeFields.firstColor} TEXT,"
@@ -47,6 +48,7 @@ class LocalDatabase {
 
     var result = await db.query(tableName, columns: [
       CardModeFields.cardNumber,
+      CardModeFields.author,
       CardModeFields.image,
       CardModeFields.expireDate,
       CardModeFields.secondColor,

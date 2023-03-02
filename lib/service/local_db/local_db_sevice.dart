@@ -1,7 +1,6 @@
 import 'package:banking_app/data/models/card_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 
 class LocalDatabase {
   Database? database;
@@ -43,7 +42,7 @@ class LocalDatabase {
     return id;
   }
 
-  Future<List> getAllCards() async {
+  Future<List<CardModel>> getAllCards() async {
     Database db = await getDb();
 
     var result = await db.query(tableName, columns: [
@@ -54,10 +53,10 @@ class LocalDatabase {
       CardModeFields.firstColor
     ]);
 
-    return result.toList();
+    return  result.toList().map((e) => CardModel.fromJson(e)).toList();
   }
 
-  Future<int> updateItem(CardModel card) async {
+  Future<int> updateCard(CardModel card) async {
     Database db = await getDb();
     return await db.update(tableName, card.toJson(),
         where: "id = ?", whereArgs: [card.id]);

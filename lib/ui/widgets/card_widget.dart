@@ -1,4 +1,5 @@
 import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
+import 'package:banking_app/utils/assistants/card_masker.dart';
 import 'package:banking_app/utils/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class CardWidget extends StatelessWidget {
            Image.asset(AppImages.chip,width: 40,),
            Text("Card number",style: TextStyle(color: titleColor),),
            SizedBox(height: 8,),
-           Text(state.cardNumber,style: GoogleFonts.getFont("Cardo",fontSize: 24),),
+           Text(cardMask(state.cardNumber),style: GoogleFonts.getFont("Cardo",fontSize: 24),),
            SizedBox(height: 8,),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,

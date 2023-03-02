@@ -450,6 +450,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  string_mask:
+    dependency: "direct main"
+    description:
+      name: string_mask
+      sha256: "6996b2f4076559eb1ac3230367afe42df67fd43994632e8d5aa80e2aa2004443"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   string_scanner:
     dependency: transitive
     description:

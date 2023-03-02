@@ -38,7 +38,7 @@ class AddCardPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CardWidget(),
+               CardWidget(),
               const SizedBox(height: 20,),
               CustomTextField(controller: nameController, title: "Owner Name"),
               const SizedBox(height: 20,),

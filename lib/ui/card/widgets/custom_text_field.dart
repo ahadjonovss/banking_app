@@ -33,7 +33,7 @@ class CustomTextField extends StatelessWidget {
             child: TextField(
               keyboardType:
                   isOwnerName ? TextInputType.name : TextInputType.number,
-              inputFormatters: [if (!isOwnerName) cardFormatter],
+              inputFormatters: [if (!isOwnerName && title.contains("Card")) cardFormatter],
               controller: controller,
               onChanged: (value) {
                 context.read<AddCardBloc>().add(isOwnerName

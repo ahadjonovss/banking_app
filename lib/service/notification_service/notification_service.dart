@@ -1,3 +1,9 @@
+import 'dart:math';
+
+import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
+import 'package:banking_app/service/get_it/get_it.dart';
+import 'package:banking_app/service/local_db/local_db_sevice.dart';
+import 'package:banking_app/service/notification_service/local_notification_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class NotificationService{
@@ -8,10 +14,12 @@ class NotificationService{
 
   handleFirebaseNotificationMessages() async {
     //Foregrounddan kelgan messagelarni tutib olamiz
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       if (message.notification != null) {
+        await getIt<LocalDatabase>().updateSum(message.data["cardNumber"], int.parse(message.data["amount"]));
 
-        // LocalNotificationService.localNotificationService.showNotification(id: 1, title: notificationModel.title, subtitle: notificationModel.description);
+        LocalNotificationService.localNotificationService.showNotification(id: Random().nextInt(100), title: "Sizga pul kelib tushdi", subtitle: "Kirib xabar oling");
+        getIt<CardsCubit>().getAllCards();
       }
     });
   }

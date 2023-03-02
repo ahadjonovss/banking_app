@@ -17,7 +17,7 @@ class MyRouter {
       case  cards:
         return navigateTo(const CardsPage());
       case  payment:
-        return navigateTo(const PaymentPage());
+        return navigateTo( PaymentPage());
       case  addCard:
         return navigateTo( AddCardPage());
       case  updateCard:

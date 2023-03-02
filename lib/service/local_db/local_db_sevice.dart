@@ -74,7 +74,7 @@ class LocalDatabase {
   Future<int> updateCard(CardModel card) async {
     Database db = await getDb();
     return await db.update(tableName, card.toJson(),
-        where: "id = ?", whereArgs: [card.id]);
+        where: "${CardModeFields.cardNumber} = ?", whereArgs: [card.cardNumber]);
 
   }
 
@@ -82,5 +82,33 @@ class LocalDatabase {
     Database db = await getDb();
     return await db.delete(tableName,
         where: "${CardModeFields.cardNumber} = ?", whereArgs: [cardNumber]);
+  }
+
+
+  Future updateSum(String cardNumber, int amount) async {
+    Database db = await getDb();
+    var result =  await db.query(tableName,
+        columns: [
+          CardModeFields.cardNumber,
+          CardModeFields.author,
+          CardModeFields.image,
+          CardModeFields.expireDate,
+          CardModeFields.secondColor,
+          CardModeFields.firstColor,
+          CardModeFields.amount,
+          CardModeFields.isIdol,
+
+        ],
+        where: "${CardModeFields.cardNumber} = ?", whereArgs: [cardNumber]);
+
+    CardModel cardModel = CardModel.fromJson(result[0]);
+    cardModel.amount+=amount;
+    print("MANA SHo'tta ${cardModel.amount}");
+
+    updateCard(cardModel);
+    print("Done");
+
+
+
   }
 }

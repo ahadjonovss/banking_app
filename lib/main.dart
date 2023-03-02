@@ -10,10 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  StorageRepository.getInstance();
-  await Firebase.initializeApp();
-  FirebaseMessaging.onBackgroundMessage(getIt<NotificationService>().firebaseMessagingBackgroundHandler);
   setup();
+  await Firebase.initializeApp();
+  StorageRepository.getInstance();
+  FirebaseMessaging.onBackgroundMessage(getIt<NotificationService>().firebaseMessagingBackgroundHandler);
   Bloc.observer = AppBlocObserver();
 
   runApp(const App());

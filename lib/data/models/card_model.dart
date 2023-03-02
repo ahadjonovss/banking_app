@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CardModel {
   final String author;
   int? id;
-  final num amount;
+   num amount;
   final String expireDate;
   final String cardNumber;
   final String image;
@@ -13,7 +13,7 @@ class CardModel {
   CardModel(
       {
         this.isIdol=false,
-        this.amount=0,
+        this.amount=100000000000,
         this.id = -8,
       required this.image,
       required this.cardNumber,

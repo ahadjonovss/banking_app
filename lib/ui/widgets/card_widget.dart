@@ -1,5 +1,6 @@
 import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
 import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
+import 'package:banking_app/bloc/cubits/payment_cubit/payment_cubit.dart';
 import 'package:banking_app/data/models/card_model.dart';
 import 'package:banking_app/utils/assistants/card_masker.dart';
 import 'package:banking_app/utils/constants/app_images.dart';
@@ -18,15 +19,18 @@ class CardWidget extends StatelessWidget {
     Color textColor = Colors.black;
     Color titleColor = Colors.grey;
     return ZoomTapAnimation(
-      onLongTap: () {
-
+      onLongTap: () async {
+        await context.read<PaymentCubit>().saveIdolCard(card.cardNumber);
+        // ignore: use_build_context_synchronously
+        context.read<CardsCubit>().getAllCards();
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("It has been idol!")));
       },
       child: Container(
         margin: const EdgeInsets.only(top: 20),
         padding: const EdgeInsets.all(16),
         height: 233,
-        width: 400,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           image: card.image.isNotEmpty?DecorationImage(
             image: AssetImage(card.image),

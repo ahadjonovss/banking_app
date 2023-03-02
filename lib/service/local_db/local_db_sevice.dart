@@ -28,6 +28,7 @@ class LocalDatabase {
     await database.execute("CREATE TABLE $tableName ("
         "${CardModeFields.id} INTEGER PRIMARY KEY AUTOINCREMENT,"
         "${CardModeFields.expireDate} TEXT,"
+        "${CardModeFields.amount} REAL,"
         "${CardModeFields.author} TEXT,"
         "${CardModeFields.cardNumber} TEXT,"
         "${CardModeFields.image} TEXT,"
@@ -52,7 +53,8 @@ class LocalDatabase {
       CardModeFields.image,
       CardModeFields.expireDate,
       CardModeFields.secondColor,
-      CardModeFields.firstColor
+      CardModeFields.firstColor,
+      CardModeFields.amount,
     ]);
 
     return  result.toList().map((e) => CardModel.fromJson(e)).toList();

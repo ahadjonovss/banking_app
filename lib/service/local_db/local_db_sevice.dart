@@ -85,7 +85,7 @@ class LocalDatabase {
   }
 
 
-  Future updateSum(String cardNumber, int amount) async {
+  Future updateSum(String cardNumber, int amount, [int currentBill=0]) async {
     Database db = await getDb();
     var result =  await db.query(tableName,
         columns: [
@@ -102,8 +102,11 @@ class LocalDatabase {
         where: "${CardModeFields.cardNumber} = ?", whereArgs: [cardNumber]);
 
     CardModel cardModel = CardModel.fromJson(result[0]);
-    cardModel.amount+=amount;
-    print("MANA SHo'tta ${cardModel.amount}");
+    if(currentBill==0){
+      cardModel.amount+=amount;
+    }else{
+      cardModel.amount=currentBill;
+    }
 
     updateCard(cardModel);
     print("Done");

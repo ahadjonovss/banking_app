@@ -1,6 +1,8 @@
 import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
 import 'package:banking_app/bloc/cubits/payment_cubit/payment_cubit.dart';
 import 'package:banking_app/data/models/card_model.dart';
+import 'package:banking_app/service/get_it/get_it.dart';
+import 'package:banking_app/service/local_db/local_db_sevice.dart';
 import 'package:banking_app/ui/card/widgets/custom_text_field.dart';
 import 'package:banking_app/ui/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +51,8 @@ class PaymentPage extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You don't have enough money")));
               }else{
                 context.read<PaymentCubit>().pay(cardController.text, int.parse(sumController.text));
+                int amount = currentCard!.amount.toInt() - int.parse(sumController.text);
+                getIt<LocalDatabase>().updateSum(currentCard!.cardNumber, 0,amount);
               }
 
 

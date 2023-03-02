@@ -8,6 +8,7 @@ class AddCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color textColor = Colors.black;
+    Color titleColor = Colors.grey;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -36,7 +37,7 @@ class AddCardPage extends StatelessWidget {
                   SizedBox(height: 4,),
                   Divider(),
                   Image.asset(AppImages.chip,width: 40,),
-                  Text("Card number",),
+                  Text("Card number",style: TextStyle(color: titleColor),),
                   SizedBox(height: 8,),
                   Text("1111 2222 3333 4444",style: GoogleFonts.getFont("Cardo",fontSize: 24),),
                   SizedBox(height: 8,),
@@ -46,14 +47,14 @@ class AddCardPage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Owner Name",style: TextStyle(fontSize: 8),),
+                          Text("Owner Name",style: TextStyle(fontSize: 8,color: titleColor),),
                           Text("Samandar Ahadjonov",style: TextStyle(fontSize: 12),),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Expire Date",style: TextStyle(fontSize: 8,fontWeight: FontWeight.w500),),
+                          Text("Expire Date",style: TextStyle(fontSize: 8,fontWeight: FontWeight.w500,color: titleColor),),
                           Text("11/23",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
                         ],
                       ),

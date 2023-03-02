@@ -19,7 +19,7 @@ class MyRouter {
       case  payment:
         return navigateTo(const PaymentPage());
       case  addCard:
-        return navigateTo(const AddCardPage());
+        return navigateTo( AddCardPage());
       case  updateCard:
         return navigateTo(const UpdateCardPage());
       default:

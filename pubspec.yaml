@@ -21,6 +21,7 @@ dependencies:
   zoom_tap_animation: ^1.1.0
   sqflite: ^2.2.5
   google_fonts: ^4.0.3
+  mask_text_input_formatter: ^2.4.0
 
 dev_dependencies:
   flutter_test:

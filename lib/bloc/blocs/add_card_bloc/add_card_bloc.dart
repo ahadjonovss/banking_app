@@ -34,7 +34,7 @@ class AddCardBloc extends Bloc<AddCardEvent, AddCardState> {
         owner: event.owner));
   }
 
-  Future<void> addCardToDb(AddCardToDbEvent event, emit) async {
+  void addCardToDb(AddCardToDbEvent event, emit) async {
     if (state.expireDate.isNotEmpty &&
         state.cardNumber.length == 19 &&
         state.owner.isNotEmpty &&
@@ -47,8 +47,13 @@ class AddCardBloc extends Bloc<AddCardEvent, AddCardState> {
           author: state.owner,
           gradient: state.gradient));
       emit(state.copyWith(status: CardStatus.DONE));
+      resetState();
     }else{
       emit(state.copyWith(status: CardStatus.FAILURY));
     }
+  }
+
+  void resetState(){
+    emit(state.copyWith(image: "",status: CardStatus.PURE,gradient: [],expireDate: "",cardNumber: "",owner: ""));
   }
 }

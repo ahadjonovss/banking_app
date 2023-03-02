@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:string_to_color/string_to_color.dart';
 
 class CardModel {
   final String author;
@@ -11,9 +8,11 @@ class CardModel {
   final String cardNumber;
   final String image;
   final List<Color> gradient;
+  final bool isIdol;
 
   CardModel(
       {
+        this.isIdol=false,
         this.amount=0,
         this.id = -8,
       required this.image,
@@ -24,6 +23,7 @@ class CardModel {
 
   factory CardModel.fromJson(Map<String, dynamic> json) {
     return CardModel(
+      isIdol: json[CardModeFields.isIdol]==1?true:false,
       amount: json[CardModeFields.amount],
       author: json[CardModeFields.author]??"",
         id: json[CardModeFields.id],
@@ -31,36 +31,38 @@ class CardModel {
         cardNumber: json[CardModeFields.cardNumber],
         expireDate: json[CardModeFields.expireDate],
         gradient: [
-          ColorUtils.stringToColor(json[CardModeFields.firstColor]),
-          ColorUtils.stringToColor(json[CardModeFields.secondColor]),
+          Color(json[CardModeFields.firstColor]),
+          Color(json[CardModeFields.secondColor]),
         ]);
   }
 
   toJson() {
     return {
+      CardModeFields.isIdol:isIdol,
       CardModeFields.amount:amount,
       CardModeFields.expireDate: expireDate,
       CardModeFields.author: author,
       CardModeFields.cardNumber: cardNumber,
       CardModeFields.image: image,
-      CardModeFields.firstColor: gradient[0].toString(),
-      CardModeFields.secondColor: gradient[1].toString(),
+      CardModeFields.firstColor: gradient.length>1?gradient[0].value:Colors.white.value,
+      CardModeFields.secondColor: gradient.length>1?gradient[1].value:Colors.white.value,
     };
   }
 
-  copyWith(int id) {
+  copyWith(int newId) {
     return CardModel(
       author: author,
         image: image,
         cardNumber: cardNumber,
         expireDate: expireDate,
-        id: id,
+        id: newId,
         gradient: gradient);
   }
 }
 
 class CardModeFields {
   static const id = "id";
+  static const isIdol = "isIdol";
   static const amount = "amount";
   static const author = "author";
   static const expireDate = "expireDate";

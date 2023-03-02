@@ -30,15 +30,16 @@ class LocalDatabase {
         "${CardModeFields.id} INTEGER PRIMARY KEY AUTOINCREMENT,"
         "${CardModeFields.expireDate} TEXT,"
         "${CardModeFields.amount} REAL,"
+        "${CardModeFields.isIdol} BOOL,"
         "${CardModeFields.author} TEXT,"
         "${CardModeFields.cardNumber} TEXT,"
         "${CardModeFields.image} TEXT,"
-        "${CardModeFields.firstColor} TEXT,"
-        "${CardModeFields.secondColor} TEXT"
+        "${CardModeFields.firstColor} BLOB,"
+        "${CardModeFields.secondColor} BLOB"
         ")");
   }
 
-  Future<int> addCard(CardModel cardModel) async {
+  Future addCard(CardModel cardModel) async {
     Database db = await getDb();
     var id = await db.insert(tableName, cardModel.toJson());
     debugPrint("Card added to Sql");
@@ -58,6 +59,7 @@ class LocalDatabase {
         CardModeFields.secondColor,
         CardModeFields.firstColor,
         CardModeFields.amount,
+        CardModeFields.isIdol,
       ]);
       myResponse.cards = result.toList().map((e) => CardModel.fromJson(e)).toList();
 
@@ -76,9 +78,9 @@ class LocalDatabase {
 
   }
 
-  Future deleteCardById(int id) async {
+  Future deleteCardById(String cardNumber) async {
     Database db = await getDb();
     return await db.delete(tableName,
-        where: "id = ?", whereArgs: [id]);
+        where: "${CardModeFields.cardNumber} = ?", whereArgs: [cardNumber]);
   }
 }

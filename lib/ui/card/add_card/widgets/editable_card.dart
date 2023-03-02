@@ -20,7 +20,6 @@ class _EditableCardWidgetState extends State<EditableCardWidget> {
     return BlocConsumer<AddCardBloc,AddCardState>(
       listener: (context, state) {
         if(state.gradient.length>1){
-          print(state.gradient);
           setState(() {});
         }
       },
@@ -29,6 +28,10 @@ class _EditableCardWidgetState extends State<EditableCardWidget> {
        height: 224,
        width: 400,
        decoration: BoxDecoration(
+           image: state.image.isNotEmpty?DecorationImage(
+               image: AssetImage(state.image),
+               fit: BoxFit.cover
+           ):null,
          gradient: state.gradient.length>1?LinearGradient(
            colors: state.gradient
          ):null,
@@ -39,13 +42,13 @@ class _EditableCardWidgetState extends State<EditableCardWidget> {
          crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            Text("Discover Credit Card",style: TextStyle(color: textColor),),
-           SizedBox(height: 4,),
-           Divider(),
+           const SizedBox(height: 4),
+           const Divider(),
            Image.asset(AppImages.chip,width: 40,),
            Text("Card number",style: TextStyle(color: titleColor),),
-           SizedBox(height: 8,),
+           const SizedBox(height: 8),
            Text(cardMask(state.cardNumber),style: GoogleFonts.getFont("Cardo",fontSize: 24),),
-           SizedBox(height: 8,),
+           const SizedBox(height: 8),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
@@ -53,14 +56,14 @@ class _EditableCardWidgetState extends State<EditableCardWidget> {
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
                    Text("Owner Name",style: TextStyle(fontSize: 8,color: titleColor),),
-                   Text(state.owner,style: TextStyle(fontSize: 12),),
+                   Text(state.owner,style: const TextStyle(fontSize: 12),),
                  ],
                ),
                Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
                    Text("Expire Date",style: TextStyle(fontSize: 8,fontWeight: FontWeight.w500,color: titleColor),),
-                   Text(state.expireDate??"",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                   Text(state.expireDate,style: const TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
                  ],
                ),
                Image.asset(AppImages.visa,width: 80,)

@@ -10,21 +10,17 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavCubit,int>(
       builder: (context, state) =>
-      AnimatedBottomNavigationBar(
-        activeColor: Colors.white,
-        inactiveColor: Colors.white.withOpacity(0.7),
-        backgroundColor: Colors.blueAccent,
-        icons: context.read<BottomNavCubit>().iconList,
-        activeIndex: state,
-        gapLocation: GapLocation.center,
-        height: 80,
-        iconSize: 28,
-        notchSmoothness: NotchSmoothness.verySmoothEdge,
-        leftCornerRadius: 32,
-        rightCornerRadius: 32,
-        onTap: (index) => context.read<BottomNavCubit>().changePageIndex(index),
-        //other params
-      ),
+          BottomNavigationBar(
+            backgroundColor: Colors.black,
+            onTap: (index){
+              context.read<BottomNavCubit>().changePageIndex(index);
+            },
+              selectedItemColor: Colors.blue,
+              unselectedItemColor: Colors.white,
+              items:const [
+                BottomNavigationBarItem(icon: Icon(Icons.list),label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.payment),label: "")
+              ] )
     );
   }
 }

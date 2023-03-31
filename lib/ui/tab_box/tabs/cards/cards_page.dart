@@ -1,8 +1,4 @@
-import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
-import 'package:banking_app/bloc/cubits/payment_cubit/payment_cubit.dart';
-import 'package:banking_app/ui/widgets/card_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../utils/file_importer/file_importer.dart';
 
 class CardsPage extends StatefulWidget {
   const CardsPage({Key? key}) : super(key: key);
@@ -49,7 +45,7 @@ class _CardsPageState extends State<CardsPage> {
               else if(state is GettingCardInProgressState){
                 return const Center(child: CircularProgressIndicator(),);
               }else if(state is GettingCardInFailuryState){
-                return Center(child: Text(state.status,style: TextStyle(color: Colors.white),),);
+                return Center(child: Text(state.status,style: const TextStyle(color: Colors.white),),);
               }
               else{
                 // context.read<CardsCubit>().getAllCards();

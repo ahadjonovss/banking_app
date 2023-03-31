@@ -1,11 +1,4 @@
-import 'package:banking_app/ui/card/add_card/add_card_page.dart';
-import 'package:banking_app/ui/card/update_card/update_card_page.dart';
-import 'package:banking_app/ui/splash/splash_page.dart';
-import 'package:banking_app/ui/tab_box/home_page.dart';
-import 'package:banking_app/ui/tab_box/tabs/cards/cards_page.dart';
-import 'package:banking_app/ui/tab_box/tabs/payment/payment_page.dart';
-import 'package:banking_app/utils/router/routes.dart';
-import 'package:flutter/material.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class MyRouter {
   static Route? generateRoute(RouteSettings settings) {
@@ -20,8 +13,6 @@ class MyRouter {
         return navigateTo( PaymentPage());
       case  addCard:
         return navigateTo( AddCardPage());
-      case  updateCard:
-        return navigateTo(const UpdateCardPage());
       default:
         return navigateTo(
           Scaffold(

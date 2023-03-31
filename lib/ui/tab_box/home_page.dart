@@ -1,11 +1,4 @@
-import 'package:banking_app/bloc/cubits/bottom_nav_cubit/navigation_cubit.dart';
-import 'package:banking_app/service/get_it/get_it.dart';
-import 'package:banking_app/service/notification_service/notification_service.dart';
-import 'package:banking_app/ui/tab_box/tabs/widgets/custom_nav_bar.dart';
-import 'package:banking_app/utils/router/routes.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           index: context.read<BottomNavCubit>().activePageIndex,
           children: context.read<BottomNavCubit>().pages,
         ),
-        bottomNavigationBar: CustomNavigationBar() ,
+        bottomNavigationBar: const CustomNavigationBar() ,
       ),
     );
   }

@@ -1,7 +1,4 @@
-import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
-import 'package:banking_app/utils/input_formatters/input_formatters.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {

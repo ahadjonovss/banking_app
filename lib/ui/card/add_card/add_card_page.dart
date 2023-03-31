@@ -30,7 +30,6 @@ class _AddCardPageState extends State<AddCardPage> {
         child: BlocConsumer<AddCardBloc,AddCardState>(
           listener: (context, state) {
             if(state.status==CardStatus.DONE){
-
               context.read<CardsBloc>().add(GetAllCardsEvent());
               Navigator.pop(context);
             }else if(state.status==CardStatus.FAILURY){
@@ -119,7 +118,6 @@ class _AddCardPageState extends State<AddCardPage> {
                   children: [
                     GlobalButton(color: Colors.red, title: "Cancel action", onTap: (){
                       Navigator.pop(context);
-
                     }),
                     GlobalButton(color: Colors.lightBlueAccent, title: "Save Card", onTap: (){
                       context.read<AddCardBloc>().add(AddCardToDbEvent());

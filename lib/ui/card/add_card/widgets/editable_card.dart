@@ -33,7 +33,7 @@ class _EditableCardWidgetState extends State<EditableCardWidget> {
            colors: state.gradient
          ):null,
            borderRadius: BorderRadius.circular(12),
-           color: Colors.white
+           color: state.gradient.length==1?state.gradient[0]:null
        ),
        child: Column(
          crossAxisAlignment: CrossAxisAlignment.start,

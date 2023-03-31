@@ -1,7 +1,6 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:banking_app/bloc/cubits/bottom_nav_cubit/navigation_cubit.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({Key? key}) : super(key: key);

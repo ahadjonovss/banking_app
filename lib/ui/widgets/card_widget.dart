@@ -1,4 +1,3 @@
-import 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
 import 'package:banking_app/utils/file_importer/file_importer.dart';
 // ignore: must_be_immutable
 class CardWidget extends StatelessWidget {

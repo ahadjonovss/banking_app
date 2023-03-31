@@ -1,5 +1,3 @@
-
-
 import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class CustomNavigationBar extends StatelessWidget {

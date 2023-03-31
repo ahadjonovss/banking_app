@@ -1,14 +1,4 @@
-import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
-import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
-import 'package:banking_app/bloc/cubits/payment_cubit/payment_cubit.dart';
-import 'package:banking_app/data/models/card_model.dart';
-import 'package:banking_app/utils/assistants/card_masker.dart';
-import 'package:banking_app/utils/constants/app_images.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 // ignore: must_be_immutable
 class CardWidget extends StatelessWidget {
   CardModel card;
@@ -24,7 +14,7 @@ class CardWidget extends StatelessWidget {
         // ignore: use_build_context_synchronously
         context.read<CardsCubit>().getAllCards();
         // ignore: use_build_context_synchronously
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("It has been idol!")));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("It has been idol!")));
       },
       child: Container(
         margin: const EdgeInsets.only(top: 20),

@@ -1,13 +1,6 @@
-import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
-import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
-import 'package:banking_app/ui/card/add_card/widgets/design_widget.dart';
-import 'package:banking_app/ui/card/widgets/custom_text_field.dart';
-import 'package:banking_app/ui/card/add_card/widgets/editable_card.dart';
-import 'package:banking_app/ui/widgets/global_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
-import 'package:month_year_picker/month_year_picker.dart';
+
+
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class AddCardPage extends StatefulWidget {
   const AddCardPage({Key? key}) : super(key: key);
@@ -113,7 +106,8 @@ class _AddCardPageState extends State<AddCardPage> {
                       alignment: Alignment.center,
                       height: 40,
                       color: Colors.grey,
-                      child: Text('Unselected',style: TextStyle(color: titleColor),),
+                      child: Text(state.image.isEmpty?'Unselected':"Selected",style: TextStyle(color: titleColor),),
+
                     ),
 
                   ],

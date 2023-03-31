@@ -16,6 +16,11 @@ class SplashPage extends StatelessWidget {
     });
     Future.delayed( const Duration(seconds: 3)).then((value) =>
         Navigator.pushNamedAndRemoveUntil(context, home, (route) => false));
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Text("Banking App"),
+      ),
+    );
   }
 }

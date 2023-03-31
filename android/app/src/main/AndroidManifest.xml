@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ahadjonovss.banking_app">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="banking_app"
         android:name="${applicationName}"

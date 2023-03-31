@@ -1,8 +1,4 @@
-
-import 'package:banking_app/ui/tab_box/tabs/cards/cards_page.dart';
-import 'package:banking_app/ui/tab_box/tabs/payment/payment_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class BottomNavCubit extends Cubit<int> {
   BottomNavCubit() : super(0);

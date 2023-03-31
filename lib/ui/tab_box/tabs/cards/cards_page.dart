@@ -32,7 +32,7 @@ class _CardsPageState extends State<CardsPage> {
             builder: (context, state) {
               if(state is GettingCardInSuccessState){
                 context.read<PaymentCubit>().getIdolCard(state.cards);
-                return SingleChildScrollView(
+                return state.cards.isEmpty?const Center(child: Text("No cards, please add",style: TextStyle(color: Colors.white),),):SingleChildScrollView(
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,

@@ -6,7 +6,7 @@ abstract class PaymentState {}
 class PaymentInitial extends PaymentState {}
 
 class IdolFoundState extends PaymentState{
-  CardModel cardModel;
+  CardModel? cardModel;
 
   IdolFoundState({required this.cardModel});
 }

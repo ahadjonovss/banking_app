@@ -29,7 +29,7 @@ class PaymentPage extends StatelessWidget {
               builder: (context, state) {
               if(state is IdolFoundState){
                 currentCard=state.cardModel;
-                return CardWidget(card:state.cardModel);
+                return currentCard==null? const SizedBox():CardWidget(card:state.cardModel!);
               }else{
                 return Container();
               }

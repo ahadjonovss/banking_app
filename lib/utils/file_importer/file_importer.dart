@@ -33,4 +33,7 @@ export 'dart:async';
 export 'package:banking_app/data/repositories/cards_repository.dart';
 export 'package:equatable/equatable.dart';
 export 'package:banking_app/data/models/my_response.dart';
+export 'package:banking_app/data/repositories/storage_repository.dart';
+export 'package:banking_app/utils/assistants/find_idol.dart';
+export 'package:dio/dio.dart';
 

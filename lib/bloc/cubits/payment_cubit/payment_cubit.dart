@@ -1,10 +1,4 @@
-import 'package:banking_app/data/models/card_model.dart';
-import 'package:banking_app/data/repositories/storage_repository.dart';
-import 'package:banking_app/utils/assistants/find_idol.dart';
-import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
-import 'package:meta/meta.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 part 'payment_state.dart';
 

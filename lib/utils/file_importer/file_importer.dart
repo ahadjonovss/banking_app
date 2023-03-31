@@ -1,5 +1,4 @@
 export 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
-export 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
 export 'package:banking_app/ui/card/add_card/widgets/design_widget.dart';
 export 'package:banking_app/ui/card/widgets/custom_text_field.dart';
 export 'package:banking_app/ui/card/add_card/widgets/editable_card.dart';
@@ -36,4 +35,6 @@ export 'package:banking_app/data/models/my_response.dart';
 export 'package:banking_app/data/repositories/storage_repository.dart';
 export 'package:banking_app/utils/assistants/find_idol.dart';
 export 'package:dio/dio.dart';
+export 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
+export 'package:get_it/get_it.dart';
 

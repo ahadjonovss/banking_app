@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
+import 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
 import 'package:banking_app/service/get_it/get_it.dart';
 import 'package:banking_app/service/local_db/local_db_sevice.dart';
 import 'package:banking_app/service/notification_service/local_notification_service.dart';
@@ -19,7 +19,7 @@ class NotificationService{
         await getIt<LocalDatabase>().updateSum(message.data["cardNumber"], int.parse(message.data["amount"]));
 
         LocalNotificationService.localNotificationService.showNotification(id: Random().nextInt(100), title: "Sizga pul kelib tushdi", subtitle: "Kirib xabar oling");
-        getIt<CardsCubit>().getAllCards();
+        getIt<CardsBloc>().add(GetAllCardsEvent());
       }
     });
   }

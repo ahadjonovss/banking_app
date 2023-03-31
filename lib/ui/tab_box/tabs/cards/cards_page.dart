@@ -1,3 +1,5 @@
+import 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
+
 import '../../../../utils/file_importer/file_importer.dart';
 
 class CardsPage extends StatefulWidget {
@@ -10,7 +12,7 @@ class CardsPage extends StatefulWidget {
 class _CardsPageState extends State<CardsPage> {
   @override
   void initState() {
-    context.read<CardsCubit>().getAllCards();
+    context.read<CardsBloc>().add(GetAllCardsEvent());
     super.initState();
   }
   @override
@@ -26,7 +28,7 @@ class _CardsPageState extends State<CardsPage> {
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(24),
-          child: BlocBuilder<CardsCubit,CardsState>(
+          child: BlocBuilder<CardsBloc,CardsState>(
             builder: (context, state) {
               if(state is GettingCardInSuccessState){
                 context.read<PaymentCubit>().getIdolCard(state.cards);

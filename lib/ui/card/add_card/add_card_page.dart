@@ -1,5 +1,6 @@
 
 
+import 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
 import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class AddCardPage extends StatefulWidget {
@@ -30,7 +31,7 @@ class _AddCardPageState extends State<AddCardPage> {
           listener: (context, state) {
             if(state.status==CardStatus.DONE){
 
-              context.read<CardsCubit>().getAllCards();
+              context.read<CardsBloc>().add(GetAllCardsEvent());
               Navigator.pop(context);
             }else if(state.status==CardStatus.FAILURY){
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Fill all gaps")));

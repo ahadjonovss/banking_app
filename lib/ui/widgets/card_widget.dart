@@ -1,3 +1,4 @@
+import 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
 import 'package:banking_app/utils/file_importer/file_importer.dart';
 // ignore: must_be_immutable
 class CardWidget extends StatelessWidget {
@@ -12,7 +13,8 @@ class CardWidget extends StatelessWidget {
       onLongTap: () async {
         await context.read<PaymentCubit>().saveIdolCard(card.cardNumber);
         // ignore: use_build_context_synchronously
-        context.read<CardsCubit>().getAllCards();
+        getIt<CardsBloc>().add(GetAllCardsEvent());
+
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("It has been idol!")));
       },
@@ -45,7 +47,8 @@ class CardWidget extends StatelessWidget {
                       content: const Text("Rostdan ham kartani o'chirmoqchimisiz?"),
                       actions: [
                         TextButton(onPressed: () {
-                          context.read<CardsCubit>().deleteCard(card.cardNumber);
+                          getIt<CardsBloc>().add(DeleteCardByIdEvent(card.cardNumber));
+
                           Navigator.pop(context);
 
                         }, child: const Text("Ha")),

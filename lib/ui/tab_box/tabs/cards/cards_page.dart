@@ -19,7 +19,7 @@ class _CardsPageState extends State<CardsPage> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text("Cars Page"),
+        title: const Text("Cards Page"),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -31,15 +31,11 @@ class _CardsPageState extends State<CardsPage> {
               if(state is GettingCardInSuccessState){
                 context.read<PaymentCubit>().getIdolCard(state.cards);
                 return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: state.cards.length,
-                        itemBuilder: (context, index) => CardWidget(card: state.cards[index]),)
-                    ],
-                  ),
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: state.cards.length,
+                    itemBuilder: (context, index) => CardWidget(card: state.cards[index]),),
                 );
               }
               else if(state is GettingCardInProgressState){

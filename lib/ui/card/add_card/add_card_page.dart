@@ -117,6 +117,7 @@ class _AddCardPageState extends State<AddCardPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GlobalButton(color: Colors.red, title: "Cancel action", onTap: (){
+                      Navigator.pop(context);
 
                     }),
                     GlobalButton(color: Colors.lightBlueAccent, title: "Save Card", onTap: (){

@@ -7,9 +7,13 @@ void main() async{
   setup();
   await Firebase.initializeApp();
   StorageRepository.getInstance();
-  FirebaseMessaging.onBackgroundMessage(getIt<NotificationService>().firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   Bloc.observer = AppBlocObserver();
 
   runApp(const App());
+}
+
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+
 }
 

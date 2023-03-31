@@ -37,4 +37,6 @@ export 'package:banking_app/utils/assistants/find_idol.dart';
 export 'package:dio/dio.dart';
 export 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
 export 'package:get_it/get_it.dart';
+export 'package:banking_app/utils/router/router.dart';
+
 

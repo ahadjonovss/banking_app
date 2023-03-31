@@ -1,13 +1,5 @@
-import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
-import 'package:banking_app/bloc/cubits/bottom_nav_cubit/navigation_cubit.dart';
-import 'package:banking_app/bloc/cubits/cards_cubit/cards_cubit.dart';
-import 'package:banking_app/bloc/cubits/payment_cubit/payment_cubit.dart';
-import 'package:banking_app/service/get_it/get_it.dart';
-import 'package:banking_app/utils/router/router.dart';
-import 'package:banking_app/utils/router/routes.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:month_year_picker/month_year_picker.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
+
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
@@ -17,7 +9,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => BottomNavCubit(),),
         BlocProvider(create: (context) => AddCardBloc(),),
-        BlocProvider(create: (context) => getIt<CardsCubit>(),),
+        BlocProvider(create: (context) => getIt<CardsBloc>(),),
         BlocProvider(create: (context) => PaymentCubit(),),
       ],
         child: MyApp());

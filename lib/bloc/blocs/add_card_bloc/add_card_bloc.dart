@@ -1,12 +1,4 @@
-import 'dart:async';
-
-import 'package:banking_app/data/models/card_model.dart';
-import 'package:banking_app/data/repositories/cards_repository.dart';
-import 'package:banking_app/service/get_it/get_it.dart';
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 part 'add_card_event.dart';
 part 'add_card_state.dart';

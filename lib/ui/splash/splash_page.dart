@@ -13,11 +13,21 @@ class SplashPage extends StatelessWidget {
     });
     Future.delayed( const Duration(seconds: 3)).then((value) =>
         Navigator.pushNamedAndRemoveUntil(context, home, (route) => false));
-    return const Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Text("Banking App"),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Column(
+            children: [
+              Image.asset(AppImages.logo,width: 200,),
+              const Text("Banking App",style: TextStyle(color: Colors.white),)
+            ],
+          ),
+        ),
       ),
     );
   }
 }
+

@@ -40,5 +40,9 @@ export 'package:get_it/get_it.dart';
 export 'package:banking_app/utils/router/router.dart';
 export 'dart:math';
 export 'package:banking_app/service/notification_service/local_notification_service.dart';
+export 'package:banking_app/app/app.dart';
+export 'package:banking_app/app/bloc_observer.dart';
+export 'package:firebase_core/firebase_core.dart';
+
 
 

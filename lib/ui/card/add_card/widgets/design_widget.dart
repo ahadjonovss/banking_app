@@ -1,7 +1,5 @@
-import 'package:banking_app/bloc/blocs/add_card_bloc/add_card_bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class DesignWidget extends StatelessWidget {
   const DesignWidget({Key? key}) : super(key: key);

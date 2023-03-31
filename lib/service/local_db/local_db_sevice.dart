@@ -1,7 +1,4 @@
-import 'package:banking_app/data/models/card_model.dart';
-import 'package:banking_app/data/models/my_response.dart';
-import 'package:flutter/foundation.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class LocalDatabase {
   Database? database;
@@ -109,9 +106,6 @@ class LocalDatabase {
     }
 
     updateCard(cardModel);
-    print("Done");
-
-
 
   }
 }

@@ -18,13 +18,12 @@ class SplashPage extends StatelessWidget {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Center(
-          child: Column(
-            children: [
-              Image.asset(AppImages.logo,width: 200,),
-              const Text("Banking App",style: TextStyle(color: Colors.white),)
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(AppImages.logo,width: 200,),
+            const Text("Banking App",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700,fontSize: 18),)
+          ],
         ),
       ),
     );

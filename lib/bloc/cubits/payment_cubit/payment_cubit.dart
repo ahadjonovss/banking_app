@@ -10,7 +10,7 @@ class PaymentCubit extends Cubit<PaymentState> {
     StorageRepository storageRepository =await  StorageRepository.getInstance();
     var cardNumber = await storageRepository.getIdol();
     currentCard = findIdol(cards, cardNumber);
-    emit(IdolFoundState(cardModel: currentCard!));
+    emit(IdolFoundState(cardModel: currentCard));
   }
 
   saveIdolCard(String cardNumber1) async {

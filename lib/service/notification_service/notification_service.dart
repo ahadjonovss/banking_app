@@ -1,10 +1,4 @@
-import 'dart:math';
-
-import 'package:banking_app/bloc/blocs/cards_bloc/cards_bloc.dart';
-import 'package:banking_app/service/get_it/get_it.dart';
-import 'package:banking_app/service/local_db/local_db_sevice.dart';
-import 'package:banking_app/service/notification_service/local_notification_service.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:banking_app/utils/file_importer/file_importer.dart';
 
 class NotificationService{
 
